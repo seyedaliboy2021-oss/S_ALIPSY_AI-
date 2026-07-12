@@ -1,0 +1,38 @@
+const video = document.querySelector("video");
+
+video.addEventListener("play", () => {
+video.style.opacity = 0;
+let start = null;
+
+function fadeIn(t) {
+if (!start) start = t;
+let p = (t - start) / 500;
+video.style.opacity = Math.min(p, 1);
+if (p < 1) requestAnimationFrame(fadeIn);
+}
+
+requestAnimationFrame(fadeIn);
+});
+
+video.addEventListener("ended", () => {
+let start = null;
+
+function fadeOut(t) {
+if (!start) start = t;
+let p = (t - start) / 500;
+video.style.opacity = 1 - Math.min(p, 1);
+
+if (p < 1) {
+  requestAnimationFrame(fadeOut);
+} else {
+  video.style.opacity = 0;
+  setTimeout(() => {
+    video.currentTime = 0;
+    video.play();
+  }, 100);
+}
+
+}
+
+requestAnimationFrame(fadeOut);
+});

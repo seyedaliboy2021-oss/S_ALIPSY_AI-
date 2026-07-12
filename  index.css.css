@@ -1,0 +1,142 @@
+:root {
+--bg: hsl(260, 87%, 3%);
+--fg: hsl(40, 6%, 95%);
+--sub: hsl(40, 6%, 82%);
+}
+
+body {
+margin: 0;
+font-family: 'Geist Sans', sans-serif;
+background: var(--bg);
+color: var(--fg);
+}
+
+.hero {
+min-height: 100vh;
+display: flex;
+flex-direction: column;
+position: relative;
+overflow: hidden;
+}
+
+/* VIDEO */
+.bg-video {
+position: absolute;
+inset: 0;
+width: 100%;
+height: 100%;
+object-fit: cover;
+opacity: 0;
+z-index: 0;
+}
+
+/* NAVBAR */
+.navbar {
+display: flex;
+justify-content: space-between;
+padding: 20px 32px;
+z-index: 10;
+}
+
+.nav-center {
+display: flex;
+gap: 20px;
+}
+
+.nav-center button {
+background: none;
+border: none;
+color: rgba(255,255,255,0.9);
+cursor: pointer;
+}
+
+.btn {
+padding: 8px 16px;
+border-radius: 999px;
+background: rgba(255,255,255,0.1);
+color: white;
+border: none;
+}
+
+.divider {
+height: 1px;
+background: linear-gradient(to right, transparent, rgba(255,255,255,0.2), transparent);
+}
+
+/* CONTENT */
+.content {
+flex: 1;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+position: relative;
+z-index: 10;
+text-align: center;
+}
+
+.blur-bg {
+width: 984px;
+height: 527px;
+background: #030303;
+filter: blur(82px);
+opacity: 0.9;
+position: absolute;
+}
+
+.title {
+font-family: 'General Sans', sans-serif;
+font-size: 120px;
+margin: 0;
+}
+
+.title span {
+background: linear-gradient(to left, #6366f1, #a855f7, #fcd34d);
+-webkit-background-clip: text;
+color: transparent;
+}
+
+.subtitle {
+color: var(--sub);
+margin-top: 10px;
+max-width: 400px;
+}
+
+.cta {
+margin-top: 25px;
+padding: 16px 30px;
+border-radius: 999px;
+background: rgba(255,255,255,0.1);
+border: none;
+color: white;
+cursor: pointer;
+}
+
+/* MARQUEE */
+.marquee {
+display: flex;
+align-items: center;
+gap: 50px;
+padding: 20px;
+}
+
+.marquee-left {
+color: rgba(255,255,255,0.5);
+}
+
+.marquee-track {
+display: flex;
+gap: 60px;
+animation: scroll 20s linear infinite;
+}
+
+.item {
+background: rgba(255,255,255,0.05);
+padding: 10px 15px;
+border-radius: 12px;
+}
+
+@keyframes scroll {
+from { transform: translateX(0); }
+to { transform: translateX(-50%); }
+}
